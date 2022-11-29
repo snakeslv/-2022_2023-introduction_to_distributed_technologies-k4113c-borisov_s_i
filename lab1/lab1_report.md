@@ -71,4 +71,8 @@ Root Token: hvs.9M8HY1vLmJryxIg58oMJb67J
 
 ![image](https://user-images.githubusercontent.com/44950206/204564320-afb51b02-51e7-43c6-a195-0a983d07faee.png)
 
+### Диаграмма организации контейнеров
+
+![image](diagram.jpg)
+
 
