@@ -33,7 +33,7 @@ Date of finished:
 ```bash
 minikube kubectl -- apply -f deployment.yaml
 ```
-### Создание сервиса типа LoadBalancer 
+### Создание сервиса типа NodePort 
 
 Для предоставления доступа к подам деплоймента `lab2` был создан манифест [service.yaml](service.yaml) для создания сервиса типа NodePort.
 
