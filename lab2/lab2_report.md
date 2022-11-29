@@ -54,7 +54,21 @@ minikube kubectl -- port-forward service/lab2 8888:8080
 ```
 Открываем порт для доступа к сервису и заходим через браузер в приложение:
 
-// img1
+![image](https://user-images.githubusercontent.com/44950206/204600984-7204f70c-76c5-40f5-8e3c-70aa4af211c1.png)
+
+Имя и IP контейнера не меняются т.к. в качестве сервиса был выбран NodePort.
+
+Развернутый deployemnt:
+
+![image](https://user-images.githubusercontent.com/44950206/204600263-c1820722-189b-407c-bbf9-84da673223e0.png)
+
+Развернутые поды:
+
+![image](https://user-images.githubusercontent.com/44950206/204600323-9d0bf8b6-7366-4951-b8ad-7bd4beb910aa.png)
+
+Развернутый сервис:
+
+![image](https://user-images.githubusercontent.com/44950206/204600344-6c4df162-86e1-4581-948e-f7f9f1a6047b.png)
 
 ### Логи контейнеров
 
