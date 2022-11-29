@@ -80,9 +80,7 @@ minikube kubectl -- logs <pod_name>
 
 Логи подов:
 
-// img2
-
-// img3
+![image](https://user-images.githubusercontent.com/44950206/204601755-b0757633-f4d6-4342-99ca-cffed6978fcc.png)
 
 ### Схема организации контейнеров и сервисов
 
