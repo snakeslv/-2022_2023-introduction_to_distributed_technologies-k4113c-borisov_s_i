@@ -71,6 +71,8 @@ kubectl label nodes multinode-cluster zone=east
 kubectl label nodes multinode-cluster-m02 zone=west
 ```
 
+![image](https://user-images.githubusercontent.com/44950206/204861128-80dfc9ff-5741-4d90-bf84-609a557a0478.png)
+
 После добавления labels, создааем манифесты для создания IPPools - [ippools.yaml](ippools.yaml).
 
 IPPool `region-east-ippool` будет назначать подам IP-адреса из адресного пространства `10.244.0.0/24`, находящихся на ноде с меткой `zone=east`.
@@ -82,6 +84,8 @@ IPPool `region-west-ippool` будет назначать подам IP-адре
 ```bash
 calicoctl create -f ippools.yaml
 ```
+
+![image](https://user-images.githubusercontent.com/44950206/204861248-fe8fe99a-f83c-45bb-8972-3eeb0b0a96ce.png)
 
 ### Проверка назначения IP адресов
 
