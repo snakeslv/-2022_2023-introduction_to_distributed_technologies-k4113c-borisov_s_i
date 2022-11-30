@@ -110,12 +110,12 @@ kubectl apply -f service.yaml
 Теперь переходим к проверке IP-адресов. Получим информацию о подах с помощью команды:
 
 ```bash
-kubectl get po -n default -o yaml
+kubectl get po -o wide
 ```
 
 Вывод консоли:
 
-// image 1
+![image](https://user-images.githubusercontent.com/44950206/204867703-cd2863bc-a2e1-4276-b0ee-e622be887936.png)
 
 Исходя из консольного вывода, видно, что один под разместился на ноде `multinode-cluster`, которой была присвоена метка `zone=east`, и получил IP-адрес из адресного пространства: `10.244.0.0/24`. Второй же под запустился на ноде `multinode-cluster-m02` с меткой `zone=west` и получил IP-адрес из пула адресов `10.244.1.0/24`.
 
