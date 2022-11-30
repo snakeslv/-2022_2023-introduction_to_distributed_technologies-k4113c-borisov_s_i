@@ -107,7 +107,7 @@ $ minikube tunnel
 
 После этого открываем наше приложения в браузере по адресу https://lab3.borisov.com/
 
-// image1
+![image](https://user-images.githubusercontent.com/44950206/204838335-e1ab596e-5f23-4de4-b4e1-9c6f6411b8c1.png)
 
 Проверяем наличие TLS-сертификата:
 
