@@ -71,7 +71,7 @@ kubectl label nodes multinode-cluster zone=east
 kubectl label nodes multinode-cluster-m02 zone=west
 ```
 
-После добавления labels, создааем манифесты для создания IPPools - [ip-pools.yaml](ip-pools.yaml).
+После добавления labels, создааем манифесты для создания IPPools - [ippools.yaml](ippools.yaml).
 
 IPPool `region-east-ippool` будет назначать подам IP-адреса из адресного пространства `10.244.0.0/24`, находящихся на ноде с меткой `zone=east`.
 
