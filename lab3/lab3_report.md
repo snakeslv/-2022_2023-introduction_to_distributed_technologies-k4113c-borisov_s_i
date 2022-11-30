@@ -111,7 +111,7 @@ $ minikube tunnel
 
 Проверяем наличие TLS-сертификата:
 
-// image2
+![image](https://user-images.githubusercontent.com/44950206/204838802-f883c78a-a3c5-4198-b082-0d1d2b109b4e.png)
 
 ### Схема организации контейнеров и сервисов
 
