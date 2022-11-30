@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lab4
+  labels:
+    app: lab4
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: lab4
+  template:
+    metadata:
+      labels:
+        app: lab4
+    spec:
+      containers:
+        - image: ifilyaninitmo/itdt-contained-frontend:master
+          name: itdt-contained-frontend
+          ports:
+            - containerPort: 3000
+              name: http
+          env:
+            - name: REACT_APP_USERNAME
+              value: svyatoslav_borisov
+            - name: REACT_APP_COMPANY_NAME
+              value: ITMO_ICT
