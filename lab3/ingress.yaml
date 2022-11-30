@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: lab3
+spec:
+  ingressClassName: "nginx"
+  rules:
+    - host: lab3.borisov.com
+      http:
+        paths:
+          - backend:
+              service:
+                name: lab3
+                port:
+                  number: 80
+            path: /
+            pathType: Prefix
+  tls:
+    - hosts:
+        - lab3.borisov.com
+      secretName: tls-cert
