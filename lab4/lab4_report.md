@@ -52,7 +52,86 @@ kubectl get po -n kube-system -l=k8s-app=calico-node
 
 Убедились что запуск кластера с 2мя нодами и плагином CNI calico произошел успешно.
 
+### Назначение IP адресов
 
+Во время инициализации кластера minikube c CNI calico, был создан ресурс IPPool - `default-ipv4-ippool`. Он не имеет конкретных правил по назначению ip-адресов на ноды, поэтому удаляем его, чтобы он не машал дальнейшей работе.
+
+Удаляем дефолтный IP пул с помощью команды:
+
+```bash
+calicoctl delete ippools default-ipv4-ippool
+```
+
+Добавим labels на ноды в соотвествии с их географическим расположением. На основе данных labels будут созданы манифесты для новых IPPools.
+
+Добавление labels для нод:
+
+```bash
+kubectl label nodes multinode-cluster zone=east
+kubectl label nodes multinode-cluster-m02 zone=west
+```
+
+После добавления labels, создааем манифесты для создания IPPools - [ip-pools.yaml](ip-pools.yaml).
+
+IPPool `region-east-ippool` будет назначать подам IP-адреса из адресного пространства `10.244.0.0/24`, находящихся на ноде с меткой `zone=east`.
+
+IPPool `region-west-ippool` будет назначать подам IP-адреса из адресного пространства `10.244.1.0/24`, находящихся на ноде с меткой `zone=west`.
+
+Разворачиваем IPPools в кластере с помощью команды:
+
+```bash
+calicoctl create -f ip-pools.yaml
+```
+
+### Проверка назначения IP адресов
+
+Для проверки созданных IP-пулов развернем тестовое приложение и посмотрим, на каких нодах развернулись поды и какие IP-адреса этим подам были присвоены.
+
+Были разработан манифест для создания Deployemnt'а - [deployment.yaml](deployment.yaml).
+
+А также манифест для создания сервиса типа LoadBalancer - [service.yaml](service.yaml)
+
+Разврачиваем Deployment с помощью команды:
+
+```bash
+kubectl apply -f deployment.yaml
+```
+
+И Service с помощью команды:
+
+```bash
+kubectl apply -f service.yaml
+```
+
+Теперь переходим к проверке IP-адресов. Получим информацию о подах с помощью команды:
+
+```bash
+kubectl get po -n default -o yaml
+```
+
+Вывод консоли:
+
+// image 1
+
+Исходя из консольного вывода, видно, что один под разместился на ноде `multinode-cluster`, которой была присвоена метка `zone=east`, и получил IP-адрес из адресного пространства: `10.244.0.0/24`. Второй же под запустился на ноде `multinode-cluster-m02` с меткой `zone=west` и получил IP-адрес из пула адресов `10.244.1.0/24`.
+
+### Тестирование приложения в браузере
+
+Теперь запустим туннель minikube и проверим работу приложения в браузере.
+
+Произведем запуск туннеля minikube с помощью команды:
+
+```bash
+minikube tunnel --profile=multinode-cluster
+```
+
+// image 2
+
+// image 3
+
+### Схема организации контейнеров и сервисов
+
+// image 4
 
 
 
