@@ -80,7 +80,7 @@ IPPool `region-west-ippool` будет назначать подам IP-адре
 Разворачиваем IPPools в кластере с помощью команды:
 
 ```bash
-calicoctl create -f ip-pools.yaml
+calicoctl create -f ippools.yaml
 ```
 
 ### Проверка назначения IP адресов
