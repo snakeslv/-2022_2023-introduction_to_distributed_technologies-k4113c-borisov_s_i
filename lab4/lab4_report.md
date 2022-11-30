@@ -129,9 +129,9 @@ kubectl get po -o wide
 minikube tunnel --profile=multinode-cluster
 ```
 
-// image 2
+![image](https://user-images.githubusercontent.com/44950206/204868295-4afc98a4-5bab-43ad-9db4-27cc389924da.png)
 
-// image 3
+![image](https://user-images.githubusercontent.com/44950206/204868248-96667d5f-f7ac-405e-b978-528c8ffe6d73.png)
 
 ### Схема организации контейнеров и сервисов
 
