@@ -84,4 +84,4 @@ minikube kubectl -- logs <pod_name>
 
 ### Схема организации контейнеров и сервисов
 
-// diagram
+![image](diagram.png)
