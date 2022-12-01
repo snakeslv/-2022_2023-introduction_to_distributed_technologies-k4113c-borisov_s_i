@@ -115,4 +115,4 @@ $ minikube tunnel
 
 ### Схема организации контейнеров и сервисов
 
-// image 3
+![image](diagram.png)
