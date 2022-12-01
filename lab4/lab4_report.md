@@ -135,7 +135,4 @@ minikube tunnel --profile=multinode-cluster
 
 ### Схема организации контейнеров и сервисов
 
-// image 4
-
-
-
+![image](diagram.png)
